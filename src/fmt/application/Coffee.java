@@ -1,6 +1,5 @@
 package fmt.application;
 
-import fmt.coffee.order.application.Recipe;
 
 public class Coffee {
     private String name;
