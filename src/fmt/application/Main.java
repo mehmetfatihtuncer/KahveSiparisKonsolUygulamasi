@@ -14,8 +14,12 @@ public class Main {
 
 			Coffee selectedCoffee = coffeeMenu.getCoffee(selectedCoffeeNumber);
 
-			displayOrder(selectedCoffee);
-
+			if (selectedCoffee != null) {
+			    System.out.println("Teşekkürler kahveniz hazırlanıyor.");
+			    displayOrder(selectedCoffee);
+			} else {
+			    System.out.println("Geçersiz kahve numarası seçildi.");
+			}
 		}
     }
 
