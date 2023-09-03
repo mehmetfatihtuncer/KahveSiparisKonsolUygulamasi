@@ -1,6 +1,5 @@
 package fmt.application;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class Recipe {

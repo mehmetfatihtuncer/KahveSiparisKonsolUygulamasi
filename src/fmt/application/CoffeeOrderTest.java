@@ -41,12 +41,9 @@ public class CoffeeOrderTest {
         System.setIn(originalInput);
         System.setOut(originalOutput);
     }
-
     @Test
     public void testMainMethod() {
-        
         Main.main(new String[]{});
-
         // Beklenen çıktı
         String expectedOutput =
                                 "Kahve Menüsü:\r\n"
@@ -62,10 +59,8 @@ public class CoffeeOrderTest {
                                 + "Hot Water seçtiniz. Bu içeceğimiz 5 doz sıcak su içermektedir. Afiyet Olsun.\r\n"
                                 + "" 
                                 ;
-
         // Gerçek çıktı
         String actualOutput = outputStream.toString();
-
         // Beklenen çıktı ile gerçek çıktının karşılaştırılması
         assertEquals(expectedOutput, actualOutput, "Beklenen değer ile gerçek değer eşleşmiyor");
     }

@@ -9,18 +9,29 @@ public class Main {
         coffeeMenu.displayMenu();
 
         try (Scanner scan = new Scanner(System.in)) {
-			System.out.println("Lütfen içmek istediğiniz kahvenin numarasını giriniz: ");
-			int selectedCoffeeNumber = scan.nextInt();
+            System.out.println("Lütfen içmek istediğiniz kahvenin numarasını giriniz: ");
 
-			Coffee selectedCoffee = coffeeMenu.getCoffee(selectedCoffeeNumber);
+            
+            while (true) {
+                if (scan.hasNextInt()) { // Kullanıcı bir tamsayı girdi mi?
+                    int selectedCoffeeNumber = scan.nextInt();
 
-			if (selectedCoffee != null) {
-			    System.out.println("Teşekkürler kahveniz hazırlanıyor.");
-			    displayOrder(selectedCoffee);
-			} else {
-			    System.out.println("Geçersiz kahve numarası seçildi.");
-			}
-		}
+                    // Geçerli kahve numarası kontrolü
+                    if (selectedCoffeeNumber >= 1 && selectedCoffeeNumber <= 7) {
+                        Coffee selectedCoffee = coffeeMenu.getCoffee(selectedCoffeeNumber);
+
+                        System.out.println("Teşekkürler kahveniz hazırlanıyor.");
+                        displayOrder(selectedCoffee);
+                        break;
+                    } else {
+                        System.out.println("Geçersiz kahve numarası seçildi. Lütfen 1 ile 7 arasında bir numara girin.");
+                    }
+                } else {
+                    System.out.println("Geçersiz giriş. Lütfen bir tamsayı girin.");
+                    scan.next(); // Geçersiz girişi temizler
+                }
+            }
+        }
     }
 
     private static void displayOrder(Coffee coffee) {
